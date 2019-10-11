@@ -3,13 +3,16 @@ package unitConverter.converter;
 public class WeightConverter extends Converter {
     private static final String PURPOSE = "Convert weight units";
 
-    public void convert() {
+    @Override
+    public void printMenu() {
         System.out.println("Choose from the following:");
         System.out.println("1. Convert ounces to grams");
         System.out.println("2. Convert pounds to kilograms");
         System.out.println("3. Convert grams to ounces");
         System.out.println("4. Convert kilograms to pounds");
-        int choice = Input.nextInt();
+    }
+
+    public void convert(int choice) {
         float weight;
         String result;
         switch (choice) {

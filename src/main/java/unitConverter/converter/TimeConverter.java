@@ -3,17 +3,7 @@ package unitConverter.converter;
 public class TimeConverter extends Converter {
     private static final String PURPOSE = "Convert date/time units";
 
-    public void convert() {
-        System.out.println("Choose from the following:");
-        System.out.println("1. Convert US date format to Canadian date format");
-        System.out.println("2. Convert US date format to European date format");
-        System.out.println("3. Convert Canadian date format to US date format");
-        System.out.println("4. Convert Canadian date format to European date format");
-        System.out.println("5. Convert European date format to US date format");
-        System.out.println("6. Convert European date format to Canadian date format");
-        System.out.println("7. Convert 12-hour format to 24-hour format");
-        System.out.println("8. Convert 24-hour format to 12-hour format");
-        int choice = Input.nextInt();
+    public void convert(int choice) {
         String result;
         switch (choice) {
             case 1:
@@ -53,6 +43,19 @@ public class TimeConverter extends Converter {
                 return;
         }
         System.out.println("The result is " + result);
+    }
+
+    @Override
+    public void printMenu() {
+        System.out.println("Choose from the following:");
+        System.out.println("1. Convert US date format to Canadian date format");
+        System.out.println("2. Convert US date format to European date format");
+        System.out.println("3. Convert Canadian date format to US date format");
+        System.out.println("4. Convert Canadian date format to European date format");
+        System.out.println("5. Convert European date format to US date format");
+        System.out.println("6. Convert European date format to Canadian date format");
+        System.out.println("7. Convert 12-hour format to 24-hour format");
+        System.out.println("8. Convert 24-hour format to 12-hour format");
     }
 
     @Override

@@ -3,17 +3,10 @@ package unitConverter.converter;
 public class LengthConverter extends Converter {
     private static final String PURPOSE = "Convert length units";
 
-    public void convert() {
-        System.out.println("Choose from the following:");
-        System.out.println("1. Convert inches to centimetres");
-        System.out.println("2. Convert feet to meters");
-        System.out.println("3. Convert miles to kilometres");
-        System.out.println("4. Convert centimetres to inches");
-        System.out.println("5. Convert meters to feet");
-        System.out.println("6. Convert kilometres to miles");
-        int choice = Input.nextInt();
+    public void convert(int choice) {
         float length;
         String result;
+
         switch (choice) {
             case 1:
                 System.out.println("Enter the number of inches:");
@@ -50,6 +43,17 @@ public class LengthConverter extends Converter {
                 return;
         }
         System.out.println("The result is " + result);
+    }
+
+    @Override
+    public void printMenu() {
+        System.out.println("Choose from the following:");
+        System.out.println("1. Convert inches to centimetres");
+        System.out.println("2. Convert feet to meters");
+        System.out.println("3. Convert miles to kilometres");
+        System.out.println("4. Convert centimetres to inches");
+        System.out.println("5. Convert meters to feet");
+        System.out.println("6. Convert kilometres to miles");
     }
 
     @Override

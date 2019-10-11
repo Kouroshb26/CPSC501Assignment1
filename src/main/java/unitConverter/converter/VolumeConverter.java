@@ -5,13 +5,16 @@ import java.util.Scanner;
 public class VolumeConverter extends Converter {
     private static final String PURPOSE = "Convert volume units";
 
-    public void convert() {
+    @Override
+    public void printMenu() {
         System.out.println("Choose from the following:");
         System.out.println("1. Convert fluid oz. to millilitres");
         System.out.println("2. Convert gallons to litres");
         System.out.println("3. Convert millilitres to fluid oz.");
         System.out.println("4. Convert litres to gallons");
-        int choice = Input.nextInt();
+    }
+
+    public void convert(int choice) {
         String result;
         float volume;
         switch (choice) {

@@ -18,7 +18,9 @@ public abstract class Converter {
 
     }
 
-    public abstract void convert();
+    public abstract void printMenu();
+
+    public abstract void convert(int choice);
 
     public abstract String methodName();
 
@@ -33,7 +35,10 @@ public abstract class Converter {
 
     private static void chooseConverter(int choice) {
         try {
-            converters.get(choice - 1).convert();
+            Converter converter = converters.get(choice - 1);
+            converter.printMenu();
+            converter.convert(Input.nextInt());
+
         } catch (IndexOutOfBoundsException e) {
             System.out.println("Invalid choice, exiting");
         }
