@@ -11,29 +11,28 @@ public class VolumeConverter extends Converter {
         System.out.println("2. Convert gallons to litres");
         System.out.println("3. Convert millilitres to fluid oz.");
         System.out.println("4. Convert litres to gallons");
-        Scanner menu = new Scanner(System.in);
-        int choice = menu.nextInt();
+        int choice = Input.nextInt();
         String result;
         float volume;
         switch (choice) {
             case 1:
                 System.out.println("Enter the number of fluid oz.:");
-                volume = menu.nextFloat();
+                volume = Input.nextFloat();
                 result = oz_to_mil(volume);
                 break;
             case 2:
                 System.out.println("Enter the number of gallons:");
-                volume = menu.nextFloat();
+                volume = Input.nextFloat();
                 result = gallons_to_litres(volume);
                 break;
             case 3:
                 System.out.println("Enter the number of millilitres:");
-                volume = menu.nextFloat();
+                volume = Input.nextFloat();
                 result = mil_to_oz(volume);
                 break;
             case 4:
                 System.out.println("Enter the number of litres:");
-                volume = menu.nextFloat();
+                volume = Input.nextFloat();
                 result = litres_to_gallons(volume);
                 break;
             default:

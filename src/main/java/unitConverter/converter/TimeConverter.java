@@ -1,9 +1,5 @@
 package unitConverter.converter;
 
-import java.util.Scanner;
-
-import unitConverter.converter.Converter;
-
 public class TimeConverter extends Converter {
     private static final String PURPOSE = "Convert date/time units";
 
@@ -17,49 +13,40 @@ public class TimeConverter extends Converter {
         System.out.println("6. Convert European date format to Canadian date format");
         System.out.println("7. Convert 12-hour format to 24-hour format");
         System.out.println("8. Convert 24-hour format to 12-hour format");
-        Scanner menu = new Scanner(System.in);
-        int choice = menu.nextInt();
+        int choice = Input.nextInt();
         String result;
         switch (choice) {
             case 1:
                 System.out.println("Enter the date:");
-                menu.nextLine();
-                result = US_Time_To_CAD_Time(menu.nextLine());
+                result = US_Time_To_CAD_Time(Input.nextLine());
                 break;
             case 2:
                 System.out.println("Enter the date:");
-                menu.nextLine();
-                result = US_Time_To_EURO_Time(menu.nextLine());
+                result = US_Time_To_EURO_Time(Input.nextLine());
                 break;
             case 3:
                 System.out.println("Enter the date:");
-                menu.nextLine();
-                result = CAD_Time_To_US_Time(menu.nextLine());
+                result = CAD_Time_To_US_Time(Input.nextLine());
                 break;
             case 4:
                 System.out.println("Enter the date:");
-                menu.nextLine();
-                result = CAD_Time_To_EURO_Time(menu.nextLine());
+                result = CAD_Time_To_EURO_Time(Input.nextLine());
                 break;
             case 5:
                 System.out.println("Enter the date:");
-                menu.nextLine();
-                result = EURO_Time_To_US_Time(menu.nextLine());
+                result = EURO_Time_To_US_Time(Input.nextLine());
                 break;
             case 6:
                 System.out.println("Enter the date:");
-                menu.nextLine();
-                result = EURO_Time_To_CAD_Time(menu.nextLine());
+                result = EURO_Time_To_CAD_Time(Input.nextLine());
                 break;
             case 7:
                 System.out.println("Enter the date:");
-                menu.nextLine();
-                result = hour12ToHour24(menu.nextLine());
+                result = hour12ToHour24(Input.nextLine());
                 break;
             case 8:
                 System.out.println("Enter the date:");
-                menu.nextLine();
-                result = hour24ToHour12(menu.nextLine());
+                result = hour24ToHour12(Input.nextLine());
                 break;
             default:
                 System.out.println("Invalid choice, exiting");

@@ -1,7 +1,5 @@
 package unitConverter.converter;
 
-import java.util.Scanner;
-
 public class LengthConverter extends Converter {
     private static final String PURPOSE = "Convert length units";
 
@@ -13,39 +11,38 @@ public class LengthConverter extends Converter {
         System.out.println("4. Convert centimetres to inches");
         System.out.println("5. Convert meters to feet");
         System.out.println("6. Convert kilometres to miles");
-        Scanner menu = new Scanner(System.in);
-        int choice = menu.nextInt();
+        int choice = Input.nextInt();
         float length;
         String result;
         switch (choice) {
             case 1:
                 System.out.println("Enter the number of inches:");
-                length = menu.nextFloat();
+                length = Input.nextFloat();
                 result = inches_to_centimetres(length);
                 break;
             case 2:
                 System.out.println("Enter the number of feet:");
-                length = menu.nextFloat();
+                length = Input.nextFloat();
                 result = feet_to_meters(length);
                 break;
             case 3:
                 System.out.println("Enter the number of miles:");
-                length = menu.nextFloat();
+                length = Input.nextFloat();
                 result = miles_to_kilometres(length);
                 break;
             case 4:
                 System.out.println("Enter the number of centimetres:");
-                length = menu.nextFloat();
+                length = Input.nextFloat();
                 result = centimetres_to_inches(length);
                 break;
             case 5:
                 System.out.println("Enter the number of metres:");
-                length = menu.nextFloat();
+                length = Input.nextFloat();
                 result = meters_to_feet(length);
                 break;
             case 6:
                 System.out.println("Enter the number of kilometres:");
-                length = menu.nextFloat();
+                length = Input.nextFloat();
                 result = kilometres_to_miles(length);
                 break;
             default:

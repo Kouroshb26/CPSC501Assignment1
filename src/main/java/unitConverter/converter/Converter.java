@@ -2,7 +2,6 @@ package unitConverter.converter;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Scanner;
 
 public abstract class Converter {
 
@@ -15,8 +14,7 @@ public abstract class Converter {
     public static void main(String[] args) {
         Converter.listConverters();
 
-        Scanner menu = new Scanner(System.in);
-        Converter.chooseConverter(menu.nextInt());
+        Converter.chooseConverter(Input.nextInt());
 
     }
 
