@@ -2,6 +2,8 @@ package unitConverter.converter;
 
 import java.util.Scanner;
 
+import unitConverter.converter.Converter;
+
 public class TimeConverter extends Converter {
 
     public void convert() {
@@ -16,92 +18,117 @@ public class TimeConverter extends Converter {
         System.out.println("8. Convert 24-hour format to 12-hour format");
         Scanner menu = new Scanner(System.in);
         int choice = menu.nextInt();
-        String date1;
-        String time1;
-        String[] splitString;
+        String result;
         switch (choice) {
             case 1:
                 System.out.println("Enter the date:");
                 menu.nextLine();
-                date1 = menu.nextLine();
-                splitString = date1.split("\\/|\\-|\\.");
-                System.out.println("The result is " + splitString[2] + "/" + splitString[0] + "/" + splitString[1]);
+                result = US_Time_To_CAD_Time(menu.nextLine());
                 break;
             case 2:
                 System.out.println("Enter the date:");
                 menu.nextLine();
-                date1 = menu.nextLine();
-                splitString = date1.split("\\/|\\-|\\.");
-                System.out.println("The result is " + splitString[1] + "/" + splitString[0] + "/" + splitString[2]);
+                result = US_Time_To_EURO_Time(menu.nextLine());
                 break;
             case 3:
                 System.out.println("Enter the date:");
                 menu.nextLine();
-                date1 = menu.nextLine();
-                splitString = date1.split("\\/|\\-|\\.");
-                System.out.println("The result is " + splitString[1] + "/" + splitString[2] + "/" + splitString[0]);
+                result = CAD_Time_To_US_Time(menu.nextLine());
                 break;
             case 4:
                 System.out.println("Enter the date:");
                 menu.nextLine();
-                date1 = menu.nextLine();
-                splitString = date1.split("\\/|\\-|\\.");
-                System.out.println("The result is " + splitString[2] + "/" + splitString[1] + "/" + splitString[0]);
+                result = CAD_Time_To_EURO_Time(menu.nextLine());
                 break;
             case 5:
                 System.out.println("Enter the date:");
                 menu.nextLine();
-                date1 = menu.nextLine();
-                splitString = date1.split("\\/|\\-|\\.");
-                System.out.println("The result is " + splitString[1] + "/" + splitString[0] + "/" + splitString[2]);
+                result = EURO_Time_To_US_Time(menu.nextLine());
                 break;
             case 6:
                 System.out.println("Enter the date:");
                 menu.nextLine();
-                date1 = menu.nextLine();
-                splitString = date1.split("\\/|\\-|\\.");
-                System.out.println("The result is " + splitString[2] + "/" + splitString[1] + "/" + splitString[0]);
+                result = EURO_Time_To_CAD_Time(menu.nextLine());
                 break;
             case 7:
                 System.out.println("Enter the date:");
                 menu.nextLine();
-                time1 = menu.nextLine();
-                splitString = time1.split(":| ");
-                int hours12 = Integer.parseInt(splitString[0]);
-                int minutes12 = Integer.parseInt(splitString[1]);
-                if (splitString[2].equalsIgnoreCase("PM")) {
-                    hours12 += 12;
-                    if (hours12 == 24) {
-                        hours12 = 0;
-                    }
-                }
-                System.out.println("The result is " + hours12 + ":" + minutes12);
+                result = hour12ToHour24(menu.nextLine());
                 break;
             case 8:
                 System.out.println("Enter the date:");
                 menu.nextLine();
-                date1 = menu.nextLine();
-                splitString = date1.split(":");
-                int hours24 = Integer.parseInt(splitString[0]);
-                int minutes24 = Integer.parseInt(splitString[1]);
-                String period;
-                if (hours24 >= 12) {
-                    period = "PM";
-                    hours24 -= 12;
-                    if (hours24 == 0) {
-                        hours24 = 12;
-                    }
-                } else {
-                    period = "AM";
-                    if (hours24 == 0) {
-                        hours24 = 12;
-                    }
-                }
-
-
-                System.out.println("The result is " + hours24 + ":" + minutes24 + " " + period);
+                result = hour24ToHour12(menu.nextLine());
                 break;
+            default:
+                System.out.println("Invalid choice, exiting");
+                return;
         }
+        System.out.println("The result is " + result);
     }
 
+    public String US_Time_To_CAD_Time(String date) {
+        String[] splitString = date.split("\\/|\\-|\\.");
+        return splitString[2] + "/" + splitString[0] + "/" + splitString[1];
+    }
+
+    public String US_Time_To_EURO_Time(String date) {
+        String[] splitString = date.split("\\/|\\-|\\.");
+        return splitString[1] + "/" + splitString[0] + "/" + splitString[2];
+    }
+
+    public String CAD_Time_To_US_Time(String date) {
+        String[] splitString = date.split("\\/|\\-|\\.");
+        return splitString[1] + "/" + splitString[2] + "/" + splitString[0];
+    }
+
+    public String CAD_Time_To_EURO_Time(String date) {
+        String[] splitString = date.split("\\/|\\-|\\.");
+        return splitString[2] + "/" + splitString[1] + "/" + splitString[0];
+    }
+
+    public String EURO_Time_To_US_Time(String date) {
+        String[] splitString = date.split("\\/|\\-|\\.");
+        return splitString[1] + "/" + splitString[0] + "/" + splitString[2];
+    }
+
+    public String EURO_Time_To_CAD_Time(String date) {
+        String[] splitString = date.split("\\/|\\-|\\.");
+        return splitString[2] + "/" + splitString[1] + "/" + splitString[0];
+    }
+
+    public String hour12ToHour24(String date) {
+
+        String[] splitString = date.split(":| ");
+        int hours12 = Integer.parseInt(splitString[0]);
+        int minutes12 = Integer.parseInt(splitString[1]);
+        if (splitString[2].equalsIgnoreCase("PM")) {
+            hours12 += 12;
+            if (hours12 == 24) {
+                hours12 = 0;
+            }
+        }
+        return hours12 + ":" + minutes12;
+    }
+
+    public String hour24ToHour12(String date) {
+        String[] splitString = date.split(":");
+        int hours24 = Integer.parseInt(splitString[0]);
+        int minutes24 = Integer.parseInt(splitString[1]);
+        String period;
+        if (hours24 >= 12) {
+            period = "PM";
+            hours24 -= 12;
+            if (hours24 == 0) {
+                hours24 = 12;
+            }
+        } else {
+            period = "AM";
+            if (hours24 == 0) {
+                hours24 = 12;
+            }
+        }
+
+        return hours24 + ":" + minutes24 + " " + period;
+    }
 }

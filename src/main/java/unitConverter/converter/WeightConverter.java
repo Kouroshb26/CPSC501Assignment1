@@ -12,30 +12,50 @@ public class WeightConverter extends Converter {
         System.out.println("4. Convert kilograms to pounds");
         Scanner menu = new Scanner(System.in);
         int choice = menu.nextInt();
+        float weight;
+        String result;
         switch (choice) {
             case 1:
                 System.out.println("Enter the number of ounces:");
-                float oWeight = menu.nextFloat();
-                System.out.println("The result is " + oWeight * 28.35 + " grams");
+                weight = menu.nextFloat();
+                result = ounces_to_grams(weight);
                 break;
             case 2:
                 System.out.println("Enter the number of pounds:");
-                float pWeight = menu.nextFloat();
-                System.out.println("The result is " + pWeight * 0.45359 + " kilograms");
+                weight = menu.nextFloat();
+                result = pounds_to_kilograms(weight);
                 break;
             case 3:
                 System.out.println("Enter the number of grams:");
-                float gWeight = menu.nextFloat();
-                System.out.println("The result is " + gWeight / 28.35 + " ounces");
+                weight = menu.nextFloat();
+                result = grams_to_ounces(weight);
                 break;
             case 4:
                 System.out.println("Enter the number of kilograms:");
-                float kWeight = menu.nextFloat();
-                System.out.println("The result is " + kWeight / 0.45359 + " pounds");
+                weight = menu.nextFloat();
+                result = kilograms_to_pounds(weight);
                 break;
             default:
                 System.out.println("Invalid choice, exiting");
-                break;
+                return;
         }
+        System.out.println("The result is " + result);
+
+    }
+
+    public String ounces_to_grams(float weight) {
+        return weight * 28.35 + " grams";
+    }
+
+    public String pounds_to_kilograms(float weight) {
+        return weight * 0.45359 + " kilograms";
+    }
+
+    public String grams_to_ounces(float weight) {
+        return weight / 28.35 + " ounces";
+    }
+
+    public String kilograms_to_pounds(float weight) {
+        return weight / 0.45359 + " pounds";
     }
 }
