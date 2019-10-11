@@ -1,8 +1,16 @@
 package unitConverter.converter;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public abstract class Converter {
+
+    public static ArrayList<Converter> converters = new ArrayList<>(Arrays.asList(
+        new LengthConverter(),
+        new WeightConverter(),
+        new VolumeConverter(),
+        new TimeConverter()));
 
     public static void main(String[] args) {
         Converter.listConverters();
@@ -14,39 +22,24 @@ public abstract class Converter {
 
     public abstract void convert();
 
+    public abstract String methodName();
+
     private static void listConverters() {
         System.out.println("Welcome to the unit converter, please choose from the following options:");
-        System.out.println("1. Convert length units");
-        System.out.println("2. Convert weight units");
-        System.out.println("3. Convert volume units");
-        System.out.println("4. Convert date/time formats");
-    }
 
-    private static void chooseConverter(int choice) {
-        switch (choice) {
-            case 1:
-                LengthConverter lConverter = new LengthConverter();
-                lConverter.convert();
-                break;
-            case 2:
-                WeightConverter wConverter = new WeightConverter();
-                wConverter.convert();
-                break;
-            case 3:
-                VolumeConverter vConverter = new VolumeConverter();
-                vConverter.convert();
-                break;
-            case 4:
-                TimeConverter tConverter = new TimeConverter();
-                tConverter.convert();
-                break;
-            default:
-                System.out.println("Invalid choice, exiting");
-                break;
-
+        int index = 1;
+        for (Converter converter : converters) {
+            System.out.println(index++ + ". " + converter.methodName());
         }
     }
 
+    private static void chooseConverter(int choice) {
+        try {
+            converters.get(choice - 1).convert();
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("Invalid choice, exiting");
+        }
+    }
 
 
 }

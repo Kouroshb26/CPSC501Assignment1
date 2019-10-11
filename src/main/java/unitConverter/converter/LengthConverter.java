@@ -3,6 +3,7 @@ package unitConverter.converter;
 import java.util.Scanner;
 
 public class LengthConverter extends Converter {
+    private static final String PURPOSE = "Convert length units";
 
     public void convert() {
         System.out.println("Choose from the following:");
@@ -52,6 +53,11 @@ public class LengthConverter extends Converter {
                 return;
         }
         System.out.println("The result is " + result);
+    }
+
+    @Override
+    public String methodName() {
+        return PURPOSE;
     }
 
 

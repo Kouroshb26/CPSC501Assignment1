@@ -3,6 +3,7 @@ package unitConverter.converter;
 import java.util.Scanner;
 
 public class VolumeConverter extends Converter {
+    private static final String PURPOSE = "Convert volume units";
 
     public void convert() {
         System.out.println("Choose from the following:");
@@ -40,6 +41,11 @@ public class VolumeConverter extends Converter {
                 return;
         }
         System.out.println("The result is " + result);
+    }
+
+    @Override
+    public String methodName() {
+        return PURPOSE;
     }
 
     public String oz_to_mil(Float volume) {

@@ -1,8 +1,10 @@
 package unitConverter.converter;
 
+import java.security.PublicKey;
 import java.util.Scanner;
 
 public class WeightConverter extends Converter {
+    private static final String PURPOSE = "Convert weight units";
 
     public void convert() {
         System.out.println("Choose from the following:");
@@ -41,6 +43,11 @@ public class WeightConverter extends Converter {
         }
         System.out.println("The result is " + result);
 
+    }
+
+    @Override
+    public String methodName() {
+        return PURPOSE;
     }
 
     public String ounces_to_grams(float weight) {

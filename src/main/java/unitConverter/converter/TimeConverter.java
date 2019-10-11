@@ -5,6 +5,7 @@ import java.util.Scanner;
 import unitConverter.converter.Converter;
 
 public class TimeConverter extends Converter {
+    private static final String PURPOSE = "Convert date/time units";
 
     public void convert() {
         System.out.println("Choose from the following:");
@@ -65,6 +66,11 @@ public class TimeConverter extends Converter {
                 return;
         }
         System.out.println("The result is " + result);
+    }
+
+    @Override
+    public String methodName() {
+        return PURPOSE;
     }
 
     public String US_Time_To_CAD_Time(String date) {
