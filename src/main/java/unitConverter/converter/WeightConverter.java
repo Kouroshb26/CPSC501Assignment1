@@ -5,6 +5,7 @@ public class WeightConverter extends Converter {
 
     @Override
     public void printMenu() {
+        System.out.println(PURPOSE);
         System.out.println("Choose from the following:");
         System.out.println("1. Convert ounces to grams");
         System.out.println("2. Convert pounds to kilograms");

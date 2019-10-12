@@ -1,12 +1,12 @@
 package unitConverter.converter;
 
-import java.util.Scanner;
 
 public class VolumeConverter extends Converter {
     private static final String PURPOSE = "Convert volume units";
 
     @Override
     public void printMenu() {
+        System.out.println(PURPOSE);
         System.out.println("Choose from the following:");
         System.out.println("1. Convert fluid oz. to millilitres");
         System.out.println("2. Convert gallons to litres");

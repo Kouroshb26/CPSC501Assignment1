@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 public abstract class Converter {
 
-    public static ArrayList<Converter> converters = new ArrayList<>(Arrays.asList(
+    private static ArrayList<Converter> converters = new ArrayList<>(Arrays.asList(
         new LengthConverter(),
         new WeightConverter(),
         new VolumeConverter(),
@@ -33,7 +33,7 @@ public abstract class Converter {
         }
     }
 
-    private static void chooseConverter(int choice) {
+    static void chooseConverter(int choice) {
         try {
             Converter converter = converters.get(choice - 1);
             converter.printMenu();

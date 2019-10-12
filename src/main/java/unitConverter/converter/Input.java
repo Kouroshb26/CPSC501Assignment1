@@ -8,7 +8,7 @@ import java.util.Scanner;
  */
 public class Input {
 
-    private static final Scanner menu = new Scanner(System.in);
+    public static Scanner menu = new Scanner(System.in);
 
     public static int nextInt() {
         int integer = menu.nextInt();
